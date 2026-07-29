@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="tombrgb" size="1.000000 1.211382" />
+    <ImageTarget name="tomargb" size="1.000000 1.184810" />
+    <ImageTarget name="ridergb" size="1.000000 1.178295" />
+    <ImageTarget name="hihatrgb" size="1.000000 1.247813" />
+    <ImageTarget name="tomcrgb" size="1.000000 1.222513" />
+    <ImageTarget name="snarergb" size="1.000000 1.239247" />
+    <ImageTarget name="crash2rhb" size="1.000000 1.111386" />
+    <ImageTarget name="crash1rgb" size="1.000000 1.133501" />
+  </Tracking>
+</QCARConfig>
