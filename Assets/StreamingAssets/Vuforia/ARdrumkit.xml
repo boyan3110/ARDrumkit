@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig>
   <Tracking>
+    <ImageTarget name="marker_snare_drum" size="1.000000 1.000000" />
+    <ImageTarget name="marker_ride" size="1.000000 1.000000" />
+    <ImageTarget name="marker_rack_tom" size="1.000000 1.000000" />
+    <ImageTarget name="marker_kick_drum" size="1.000000 1.000000" />
+    <ImageTarget name="marker_hihat" size="1.000000 1.000000" />
+    <ImageTarget name="marker_floor_tom" size="1.000000 1.000000" />
+    <ImageTarget name="marker_crash" size="1.000000 1.000000" />
     <ImageTarget name="tombrgb" size="1.000000 1.211382" />
     <ImageTarget name="tomargb" size="1.000000 1.184810" />
     <ImageTarget name="ridergb" size="1.000000 1.178295" />
