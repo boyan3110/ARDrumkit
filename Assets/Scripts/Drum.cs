@@ -5,6 +5,7 @@ public class Drum : MonoBehaviour
 {
     public Transform hitPoint;
     public AudioSource audioSource;
+    public GameObject SnareObject;
 
     public float hitDistance = 0.05f;
     public Transform stickTip;
