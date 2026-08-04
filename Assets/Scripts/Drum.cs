@@ -35,7 +35,9 @@ public class Drum : MonoBehaviour
         Debug.Log("DRUM HIT: " + gameObject.name);
 
         Renderer r = GetComponentInChildren<Renderer>();
+        //SnareObject.GetComponent<AudioSource>().Play();
+    
 
-       
+
     }
 }
