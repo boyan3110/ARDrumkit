@@ -12,11 +12,11 @@ public class Crosshair : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // 
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log("[DRUMTEST] HIT: " + hit.collider.gameObject.name);
+                Debug.Log("[DRUMTEST] HIT: " + hit.collider.gameObject.name); // logs in android logcat
 
                 Drum drum = hit.collider.GetComponent<Drum>();
 
@@ -33,12 +33,12 @@ public class Crosshair : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("[DRUMTEST] NO DRUM SCRIPT");
+                    Debug.Log("[DRUMTEST] NO DRUM SCRIPT"); //check logs in logcat
                 }
             }
             else
             {
-                Debug.Log("[DRUMTEST] NOTHING HIT");
+                Debug.Log("[DRUMTEST] NOTHING HIT"); //Check logs in logcat
             }
         }
     }
@@ -47,10 +47,10 @@ public class Crosshair : MonoBehaviour
     {
         Color originalColor = rend.material.color;
 
-        rend.material.color = Color.red;
+        rend.material.color = Color.cyan; // color change upon hit
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.2f); // time before color reset
 
-        rend.material.color = originalColor;
+        rend.material.color = originalColor; //Back to starting color
     }
 }
