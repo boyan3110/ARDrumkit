@@ -1,12 +1,8 @@
 using System.Collections;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
-
-    public Renderer rend = null;
-
     void Start()
     {
         Debug.Log("[DRUMTEST] APP STARTED");
@@ -16,25 +12,28 @@ public class Crosshair : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("[DRUMTEST] TAP DETECTED");
-
-            //Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
 
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 Debug.Log("[DRUMTEST] HIT: " + hit.collider.gameObject.name);
 
-                rend = hit.collider.GetComponent<Renderer>();
+                Drum drum = hit.collider.GetComponent<Drum>();
 
-                if (rend != null)
+                if (drum != null)
                 {
-                    Debug.Log("[DRUMTEST] COLOR CHANGE");
-                    StartCoroutine(ColorChange());
+                    drum.Hit();
+
+                    Renderer rend = hit.collider.GetComponent<Renderer>();
+
+                    if (rend != null)
+                    {
+                        StartCoroutine(ColorChange(rend));
+                    }
                 }
                 else
                 {
-                    Debug.Log("[DRUMTEST] NO RENDERER");
+                    Debug.Log("[DRUMTEST] NO DRUM SCRIPT");
                 }
             }
             else
@@ -42,13 +41,16 @@ public class Crosshair : MonoBehaviour
                 Debug.Log("[DRUMTEST] NOTHING HIT");
             }
         }
-
     }
-    IEnumerator ColorChange()
+
+    IEnumerator ColorChange(Renderer rend)
     {
-        var clr = rend.material.color;
+        Color originalColor = rend.material.color;
+
         rend.material.color = Color.red;
-        yield return new WaitForSeconds(1f);
-        rend.material.color = clr;
+
+        yield return new WaitForSeconds(0.2f);
+
+        rend.material.color = originalColor;
     }
 }
